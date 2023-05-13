@@ -26,6 +26,13 @@ class Snake:
         new_segment.goto(position)
         self.segments.append(new_segment)
 
+    def reset(self):
+        for segment in self.segments:
+            segment.color("black")
+        self.segments.clear()
+        self.create_snake()
+        self.head = self.segments[0]
+
     #Extend snake after eating food
     def extend(self):
         self.add_segment((self.segments[-1]).position())
